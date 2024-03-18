@@ -1,7 +1,8 @@
 import "./App.css";
+import { DataTest } from "./components/DataTest";
 
 function App() {
-  return <div className="text-yellow-200 text-center">Hello</div>;
+  return <DataTest />;
 }
 
 export default App;
