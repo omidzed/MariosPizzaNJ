@@ -1,8 +1,13 @@
 import "./App.css";
-import { DataTest } from "./components/DataTest";
+import { MenuView } from "./components/MenuView";
 
 function App() {
-  return <DataTest />;
+  return (
+    <div className="bg-primary">
+      <MenuView range="Pizza" />
+      <MenuView range="Soup" />
+    </div>
+  );
 }
 
 export default App;
