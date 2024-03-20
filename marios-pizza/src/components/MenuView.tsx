@@ -40,7 +40,7 @@ export function MenuView({ range }: MenuViewProps) {
       <div className="flex flex-wrap">
         {menuItems.map((item, index) => (
           <div
-            className="flex m-2 h-24 basis-full sm:basis-[45%] md:basis-[30%] lg:basis-[20%] rounded-lg"
+            className="flex m-2 h-24 basis-full sm:basis-[45%] md:basis-[30%] lg:basis-[20%]"
             key={index}
           >
             <div className="basis-2/3 bg-white p-2">
