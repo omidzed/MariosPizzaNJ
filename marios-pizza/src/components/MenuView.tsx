@@ -1,46 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type MenuItem = {
-  name: string;
-  price: string;
-  description: string;
-  imageUrl: string;
+	name: string;
+	price: string;
+	description: string;
+	imageUrl: string;
 };
 
 type MenuViewProps = {
-  range: string;
+	range: string;
 };
 
 export function MenuView({ range }: MenuViewProps) {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+	const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-  useEffect(() => {
-    const fetchMenuItems = async () => {
-      const sheetId = "13cjuES8Db3U6x9VtAdryAzLu2IkCYrMrBy1t-rCGpJs";
-      const apiKey = "AIzaSyDKOPJtMHAG_g7wZQPonXdqcAd5DlUVAtM";
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${
-        range + "!A2:D"
-      }?key=${apiKey}`;
+	useEffect(() => {
+		const fetchMenuItems = async () => {
+			const sheetId = '13cjuES8Db3U6x9VtAdryAzLu2IkCYrMrBy1t-rCGpJs';
+			const apiKey = 'AIzaSyDKOPJtMHAG_g7wZQPonXdqcAd5DlUVAtM';
+			const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range + '!A2:D'}?key=${apiKey}`;
 
-      const response = await fetch(url);
-      const data = await response.json();
-      const items: MenuItem[] = data.values.map((row: any) => ({
-        name: row[0],
-        price: row[1],
-        description: row[2],
-        imageUrl: row[3],
-      }));
-      setMenuItems(items);
-    };
-    fetchMenuItems();
-  }, []);
+			const response = await fetch(url);
+			const data = await response.json();
+			const items: MenuItem[] = data.values.map((row: string) => ({
+				name: row[0],
+				price: row[1],
+				description: row[2],
+				imageUrl: row[3],
+			}));
+			setMenuItems(items);
+		};
+		fetchMenuItems();
+	}, [range]);
 
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-wrap">
         {menuItems.map((item, index) => (
           <div
-            className="flex m-2 h-24 basis-full sm:basis-[45%] md:basis-[30%] lg:basis-[20%]"
+            className="flex m-2 h-24 basis-full sm:basis-[45%] md:basis-[30%] lg:basis-[20%] rounded-lg"
             key={index}
           >
             <div className="basis-2/3 bg-white p-2">
