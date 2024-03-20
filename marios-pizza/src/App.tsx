@@ -1,6 +1,7 @@
 import { MenuView } from "./components/MenuView";
 import { Navbar } from "./components/NavBar";
 import { Categories } from "./components/Categories";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <div className="bg-primary">
         <MenuView range="Pizza" />
         {/* <MenuView range="Soup" /> */}
+      </div>
+      <div className="bg-secondary text-white">
+        <Footer />
       </div>
     </div>
   );

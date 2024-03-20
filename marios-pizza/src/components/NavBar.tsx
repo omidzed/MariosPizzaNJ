@@ -18,13 +18,21 @@ export function Navbar() {
         <p className="text-white">Mario's Pizza</p>
       </div>
       <div className="hidden md:flex md:flex-row md:basis-1/2 md:justify-end">
-        <button className="text-white pr-4">Home</button>
-        <button className="text-white pr-4">About Us</button>
-        <button className="text-white pr-4">Our Menu</button>
-        <button className="text-white pr-4">Contact Us</button>
+        <button className="text-white pr-4 hover:underline hover:underline-offset-4 ">
+          Home
+        </button>
+        <button className="text-white pr-4 hover:underline hover:underline-offset-4">
+          About Us
+        </button>
+        <button className="text-white pr-4 hover:underline hover:underline-offset-4">
+          Our Menu
+        </button>
+        <button className="text-white pr-4 hover:underline hover:underline-offset-4">
+          Contact Us
+        </button>
       </div>
       <div className="flex flex-wrap justify-center content-center basis-1/3 md:basis-1/4">
-        <button className="bg-[#B91C1C] text-white h-10 w-28 rounded-lg shadow-md">
+        <button className="bg-[#B91C1C] text-white h-10 w-28 rounded-lg shadow-md hover:scale-105">
           Order Now!
         </button>
       </div>
