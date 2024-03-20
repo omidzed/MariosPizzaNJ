@@ -33,29 +33,28 @@ export function MenuView({ range }: MenuViewProps) {
 		fetchMenuItems();
 	}, [range]);
 
-  return (
-    <div className="flex flex-col w-full">
-      <div className="flex flex-wrap">
-        {menuItems.map((item, index) => (
-          <div
-            className="flex m-2 h-24 basis-full sm:basis-[45%] md:basis-[30%] lg:basis-[20%] rounded-lg"
-            key={index}
-          >
-            <div className="basis-2/3 bg-white p-2">
-              <h2 className="sm:text-lg font-bold">{item.name}</h2>
-              <p className="sm:text-sm">{item.description}</p>
-              <p className="sm:text-base">{item.price}</p>
-            </div>
-            <div className="basis-1/3 mb-4">
-              <img
-                className="h-24 w-full object-cover"
-                src={item.imageUrl}
-                alt={item.name}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<div className='p-10 flex  w-full'>
+			<div className='flex justify-start flex-wrap'>
+				{menuItems.map((item, index) => (
+					<div
+						className='flex xl:rounded-xl m-3 h-32 basis-full sm:basis-[45%] md:basis-[33%] lg:basis-[23%]'
+						key={index}>
+						<div className='basis-2/3 bg-white p-2 rounded-l-lg'>
+							<h2 className='sm:text-lg font-bold'>{item.name}</h2>
+							<p className='sm:text-sm'>{item.description}</p>
+							<p className='sm:text-base'>{item.price}</p>
+						</div>
+						<div className='w-1/3'>
+							<img
+								className='h-full w-full object-cover rounded-r-lg'
+								src={item.imageUrl}
+								alt={item.name}
+							/>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	);
 }
