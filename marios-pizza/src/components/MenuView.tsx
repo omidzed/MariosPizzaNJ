@@ -41,9 +41,11 @@ export function MenuView({ range }: MenuViewProps) {
 						className='flex xl:rounded-xl m-3 h-32 basis-full sm:basis-[45%] md:basis-[33%] lg:basis-[23%]'
 						key={index}>
 						<div className='basis-2/3 bg-white p-2 rounded-l-lg'>
-							<h2 className='sm:text-lg font-bold'>{item.name}</h2>
+							<div className='flex justify-between font-bold'>
+								<h2 className='sm:text-lg '>{item.name}</h2>
+								<p className='sm:text-base'>{item.price}</p>
+							</div>
 							<p className='sm:text-sm'>{item.description}</p>
-							<p className='sm:text-base'>{item.price}</p>
 						</div>
 						<div className='w-1/3'>
 							<img
