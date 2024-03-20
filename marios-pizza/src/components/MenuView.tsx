@@ -37,10 +37,10 @@ export function MenuView({ range }: MenuViewProps) {
 
   return (
     <div className="p-10 flex  w-full">
-      <div className="flex justify-start flex-wrap">
+      <div className="flex justify-center flex-wrap">
         {menuItems.map((item, index) => (
           <div
-            className="flex xl:rounded-xl m-3 h-auto basis-full sm:basis-[45%] md:basis-[33%] lg:basis-[23%]"
+            className="flex xl:rounded-xl m-3 h-auto basis-full sm:basis-[45%] md:basis-[38%] lg:basis-[30%]"
             key={index}
           >
             <div className="basis-2/3 bg-white p-2 rounded-l-lg">
