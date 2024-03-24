@@ -1,26 +1,23 @@
-//import { MenuView } from './components/MenuView';
-import { Navbar } from './components/NavBar';
-//import { Categories } from './components/Categories';
-import { Footer } from './components/Footer';
-import { ContactUs } from './components/ContactUs';
+import { Route, Routes } from "react-router-dom";
+import { Menu } from "./pages/Menu";
+import { Navbar } from "./components/NavBar";
+import { AboutUs } from "./pages/AboutUs";
+import { ContactUs } from "./pages/ContactUs";
+import { Home } from "./pages/Home";
+import { Catering } from "./pages/Catering";
 
 function App() {
-	return (
-		<div className='bg-primary h-screen'>
-			<div>
-				<Navbar />
-			</div>
-			<div className='mt-6'>
-				{/* <Categories range='categories' /> */}
-			</div>
-			<div className='bg-primary'>
-				{/* <MenuView range='Pizza' /> */}
-				{/* <MenuView range="Soup" /> */}
-			</div>
-			<ContactUs />
-				<Footer />
-		</div>
-	);
+  return (
+    <Routes>
+      <Route path="/" element={<Navbar />}>
+        <Route index element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/catering" element={<Catering />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;

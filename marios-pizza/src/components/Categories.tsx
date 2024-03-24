@@ -29,7 +29,6 @@ export function Categories({ range }: CategoriesProps) {
         })
       );
       setCategories(fetchedCategories);
-      console.log(data);
     };
 
     fetchCategories();
