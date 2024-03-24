@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 
 export function Footer() {
   return (
-    <div className="flex flex-row p-4">
+    <div className="flex flex-row p-4 bg-secondary text-white">
       <div className="w-1/4">
         <p className="font-bold">Hours:</p>
         <p className="text-sm">Sunday: 11a - 8p</p>
