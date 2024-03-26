@@ -4,7 +4,7 @@ import TemporaryDrawer from "./TemporaryDrawer";
 export function Navbar() {
   return (
     <div>
-      <div className="bg-secondary flex flex-row">
+      <div className="bg-secondary flex flex-row sticky top-0 z-50">
         <div className="flex flex-wrap justify-center content-center w-10 basis-1/12 md:hidden">
           <TemporaryDrawer />
         </div>

@@ -35,7 +35,7 @@ export function Categories({ range }: CategoriesProps) {
   }, [range]);
 
   return (
-    <div className="flex justify-center items-center flex-wrap cursor-pointer my-6">
+    <div className="flex justify-center items-center flex-wrap cursor-pointer mb-6 bg-primary pt-4 fixed w-full pb-8">
       {categories.map((category, index) => (
         <div
           className="m-2 flex flex-col items-center hover:underline"

@@ -5,10 +5,10 @@ import { Footer } from "../components/Footer";
 export function Menu() {
   return (
     <div className="bg-primary h-screen">
-      <div className="mt-6">
+      <div>
         <Categories range="categories" />
       </div>
-      <div className="bg-primary">
+      <div className="bg-primary pt-[128px]">
         <MenuView range="Pizza" />
         {/* <MenuView range="Soup" /> */}
       </div>
