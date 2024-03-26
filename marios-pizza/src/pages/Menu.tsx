@@ -1,6 +1,5 @@
 import { MenuView } from "../components/MenuView";
 import { Categories } from "../components/Categories";
-import { Footer } from "../components/Footer";
 
 export function Menu() {
   return (
@@ -11,9 +10,6 @@ export function Menu() {
       <div className="bg-primary pt-[128px]">
         <MenuView range="Pizza" />
         {/* <MenuView range="Soup" /> */}
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );

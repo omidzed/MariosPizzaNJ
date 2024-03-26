@@ -13,27 +13,44 @@ type MenuViewProps = {
 
 export function MenuView({ range }: MenuViewProps) {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [error, setError] = useState<unknown>();
 
   useEffect(() => {
     const fetchMenuItems = async () => {
-      const sheetId = "13cjuES8Db3U6x9VtAdryAzLu2IkCYrMrBy1t-rCGpJs";
-      const apiKey = "AIzaSyDKOPJtMHAG_g7wZQPonXdqcAd5DlUVAtM";
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${
-        range + "!A2:D"
-      }?key=${apiKey}`;
+      setIsLoading(true);
+      try {
+        const sheetId = "13cjuES8Db3U6x9VtAdryAzLu2IkCYrMrBy1t-rCGpJs";
+        const apiKey = "AIzaSyDKOPJtMHAG_g7wZQPonXdqcAd5DlUVAtM";
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${
+          range + "!A2:D"
+        }?key=${apiKey}`;
 
-      const response = await fetch(url);
-      const data = await response.json();
-      const items: MenuItem[] = data.values.map((row: string) => ({
-        name: row[0],
-        price: row[1],
-        description: row[2],
-        imageUrl: row[3],
-      }));
-      setMenuItems(items);
+        const response = await fetch(url);
+        const data = await response.json();
+        const items: MenuItem[] = data.values.map((row: string) => ({
+          name: row[0],
+          price: row[1],
+          description: row[2],
+          imageUrl: row[3],
+        }));
+        setMenuItems(items);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchMenuItems();
   }, [range]);
+
+  if (isLoading) {
+    return <div className="text-center">Loading menu...</div>;
+  }
+
+  if (error) {
+    return <div>Error</div>;
+  }
 
   return (
     <div className="p-10 flex  w-full">
