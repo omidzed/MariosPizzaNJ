@@ -36,9 +36,14 @@ export function Navbar() {
           </button>
         </div>
         <div className="flex flex-wrap justify-center content-center basis-1/3 md:basis-1/4">
-          <button className="bg-[#B91C1C] text-white h-10 w-28 rounded-lg shadow-md hover:scale-105">
-            Order Now!
-          </button>
+          <a
+            href="https://oftendining.com/#s:search.php,menu.php?store_id=13283&view="
+            target="_blank"
+          >
+            <button className="bg-[#B91C1C] text-white h-10 w-28 rounded-lg shadow-md hover:scale-105">
+              Order Now!
+            </button>
+          </a>
         </div>
       </div>
       <Outlet />

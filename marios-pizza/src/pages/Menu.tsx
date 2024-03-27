@@ -7,9 +7,9 @@ export function Menu() {
       <div>
         <Categories range="categories" />
       </div>
-      <div className="bg-primary pt-[128px]">
-        <MenuView range="Pizza" />
-        {/* <MenuView range="Soup" /> */}
+      <div className="bg-primary pb-[75px]">
+        <MenuView range="Pizza" heading="Pizza" />
+        <MenuView range="Soup" heading="Soup" />
       </div>
     </div>
   );

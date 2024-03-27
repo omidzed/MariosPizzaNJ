@@ -35,27 +35,29 @@ export function Categories({ range }: CategoriesProps) {
   }, [range]);
 
   return (
-    <div className="flex justify-center items-center flex-wrap cursor-pointer mb-6 bg-primary pt-4 fixed w-full pb-8">
+    <div className="flex justify-center items-center flex-wrap cursor-pointer mb-6 bg-primary pt-4">
       {categories.map((category, index) => (
-        <div
-          className="m-2 flex flex-col items-center hover:underline"
-          key={index}
-          style={{ width: "100px" }}
-        >
-          <div className="rounded-full w-20 h-20 overflow-hidden">
-            <img
-              className="w-full h-full object-cover hover:scale-125 hover:ease-in duration-200"
-              src={category.imageUrl}
-              alt={category.name}
-            />
-          </div>
-          <p
-            className="text-center mt-2 h-2 text-sm"
-            style={{ overflowWrap: "break-word" }}
+        <a href={`#${category.name}`}>
+          <div
+            className="m-2 flex flex-col items-center hover:underline"
+            key={index}
+            style={{ width: "100px" }}
           >
-            {category.name}
-          </p>
-        </div>
+            <div className="rounded-full w-20 h-20 overflow-hidden">
+              <img
+                className="w-full h-full object-cover hover:scale-125 hover:ease-in duration-200"
+                src={category.imageUrl}
+                alt={category.name}
+              />
+            </div>
+            <p
+              className="text-center mt-2 h-2 text-sm"
+              style={{ overflowWrap: "break-word" }}
+            >
+              {category.name}
+            </p>
+          </div>
+        </a>
       ))}
     </div>
   );
