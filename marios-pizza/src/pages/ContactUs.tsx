@@ -34,13 +34,16 @@ export function ContactUs() {
     const data = await response.json();
 
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      setResult(
+        "Thank you for contacting us! We will get back to you as soon as possible!"
+      );
       setFormData({
         fullName: "",
         email: "",
         subject: "",
         message: "",
       });
+      window.alert(result);
     } else {
       console.log("Error", data);
       setResult(data.message);
@@ -56,7 +59,7 @@ export function ContactUs() {
 
   return (
     <div className="w-full flex flex-col md:flex-row overflow-auto 100vh">
-      <div className="flex justify-center 100vh lg:w-2/3">
+      <div className="flex flex-wrap justify-center 100vh lg:w-2/3">
         <form className={formStyle} onSubmit={handleSubmit}>
           <h2 className="text-white p-2 font-bold text-2xl xl:mb-4 whitespace-nowrap">
             Contact Form
@@ -69,6 +72,7 @@ export function ContactUs() {
               value={formData.fullName}
               onChange={handleChange}
               className={inputStyle}
+              required
             />
           </div>
           <div className="p-2 flex flex-col md:gap-1">
@@ -79,6 +83,7 @@ export function ContactUs() {
               value={formData.email}
               onChange={handleChange}
               className={inputStyle}
+              required
             />
           </div>
           <div className="p-2 flex flex-col md:gap-1">
@@ -89,6 +94,7 @@ export function ContactUs() {
               value={formData.subject}
               onChange={handleChange}
               className={inputStyle}
+              required
             />
           </div>
           <div className="xl:mt-4 p-2 flex flex-col md:gap-1">
@@ -98,13 +104,13 @@ export function ContactUs() {
               value={formData.message}
               onChange={handleChange}
               className={textAreaStyle}
+              required
             />
           </div>
           <button className={buttonStyle} type="submit">
             Send Message
           </button>
         </form>
-        <span>{result}</span>
       </div>
       <div className="flex flex-col mx-16 lg:w-1/2 justify-center gap-2 p-6 text-xl  md:text-3xl lg:text-5xl w-1/3 md:w-1/2">
         <span className="md:mb-6 whitespace-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">
