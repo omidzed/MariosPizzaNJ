@@ -9,10 +9,9 @@ type MenuItem = {
 
 type MenuViewProps = {
   range: string;
-  heading: string;
 };
 
-export function MenuView({ range, heading }: MenuViewProps) {
+export function MenuView({ range }: MenuViewProps) {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
   const [error, setError] = useState<unknown>();
@@ -55,8 +54,8 @@ export function MenuView({ range, heading }: MenuViewProps) {
 
   return (
     <>
-      <div className="text-center text-xl font-bold" id={heading}>
-        {heading}
+      <div className="text-center text-xl font-bold" id={range}>
+        {range}
       </div>
       <div className="p-10 pt-0 flex  w-full">
         <div className="flex justify-center flex-wrap">

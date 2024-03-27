@@ -7,6 +7,7 @@ export function ContactUs() {
     subject: "",
     message: "",
   });
+  const [result, setResult] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,8 +19,32 @@ export function ContactUs() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setResult("Sending...");
+    const formData = new FormData(e.currentTarget);
+
+    formData.append("access_key", "ac3a14dc-2a7d-4d90-bf27-9a8780088d27");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      setFormData({
+        fullName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
   };
 
   const inputStyle = " rounded h-7 pl-2";
@@ -79,6 +104,7 @@ export function ContactUs() {
             Send Message
           </button>
         </form>
+        <span>{result}</span>
       </div>
       <div className="flex flex-col mx-16 lg:w-1/2 justify-center gap-2 p-6 text-xl  md:text-3xl lg:text-5xl w-1/3 md:w-1/2">
         <span className="md:mb-6 whitespace-nowrap text-2xl md:text-3xl lg:text-4xl mb-1">

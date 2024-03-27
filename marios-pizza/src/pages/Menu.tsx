@@ -8,8 +8,9 @@ export function Menu() {
         <Categories range="categories" />
       </div>
       <div className="bg-primary pb-[75px]">
-        <MenuView range="Pizza" heading="Pizza" />
-        <MenuView range="Soup" heading="Soup" />
+        <MenuView range="Pizza" />
+        <MenuView range="Soup" />
+        <MenuView range="Fresh Salads" />
       </div>
     </div>
   );
